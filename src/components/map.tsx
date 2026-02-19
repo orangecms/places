@@ -2,21 +2,30 @@
 
 import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+
+const getIcon = (iconUrl) => (
+  new L.Icon({
+    iconUrl,
+    iconSize: [35, 35]
+  })
+);
 
 const GetRect = ({ data }) => {
   const map = useMap();
 
   useEffect(() => {
-    const lats = data.places.map((p) => p.lat);
-    const latMin = Math.min(...lats);
-    const latMax = Math.max(...lats);
-    const lons = data.places.map((p) => p.lon);
-    const lonMin = Math.min(...lons);
-    const lonMax = Math.max(...lons);
+    if (data.places.length > 0) {
+      const lats = data.places.map((p) => p.lat);
+      const latMin = Math.min(...lats);
+      const latMax = Math.max(...lats);
+      const lons = data.places.map((p) => p.lon);
+      const lonMin = Math.min(...lons);
+      const lonMax = Math.max(...lons);
 
-    const center = [(latMin + latMax)/2, (lonMin + lonMax)/2];
-
-    map.panTo(center);
+      const center = [(latMin + latMax)/2, (lonMin + lonMax)/2];
+      map.panTo(center);
+    }
 
     return () => null;
   }, []);
@@ -24,7 +33,7 @@ const GetRect = ({ data }) => {
   return (
     <>
       {data.places.map((p) => (
-        <Marker key={p.name} position={[p.lat, p.lon]}>
+        <Marker key={p.name} position={[p.lat, p.lon]} icon={getIcon(p.icon)}>
           <Popup>
             {p.name}
           </Popup>
