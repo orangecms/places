@@ -1,0 +1,10 @@
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: Nunito;
+}
+
+footer, header, main {
+  padding: 10px;
+}
