@@ -1,0 +1,22 @@
+{
+  "places": [
+    {
+      "name": "Chaospott",
+      "icon": "/images/chaospott.svg",
+      "lat": 51.4385395,
+      "lon": 7.022488
+    },
+    {
+      "name": "DWD Essen",
+      "icon": "/images/dwd.png",
+      "lat": 51.40567,
+      "lon": 6.9671
+    },
+    {
+      "name": "Das Labor",
+      "icon": "images/das-labor.png",
+      "lat": 51.4809152,
+      "lon": 7.2059925
+    }
+  ]
+}
