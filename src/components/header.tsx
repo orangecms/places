@@ -3,9 +3,13 @@ import { Link } from 'waku';
 export const Header = () => {
   return (
     <header>
-      <h2>
-        <Link to="/">Hack the planet!</Link>
-      </h2>
+      <h1>
+        <Link to="/">
+          <img alt="CCC logo" src="/images/ccc-header.png" />
+
+          Hack the planet!
+        </Link>
+      </h1>
     </header>
   );
 };
