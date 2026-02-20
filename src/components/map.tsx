@@ -4,10 +4,14 @@ import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 
+const INITIAL_ZOOM = 7;
+const INITIAL_CENTER = [9, 13];
+const ICON_SIZE = [35, 35];
+
 const getIcon = (iconUrl) => (
   new L.Icon({
     iconUrl,
-    iconSize: [35, 35]
+    iconSize: ICON_SIZE,
   })
 );
 
@@ -44,7 +48,7 @@ const GetRect = ({ data }) => {
 };
 
 const Map = ({ data }) => (
-  <MapContainer style={{ height: "100%", width: "100%" }} center={[9, 13]} zoom={9} >
+  <MapContainer style={{ height: "100%", width: "100%" }} center={INITIAL_CENTER} zoom={INITIAL_ZOOM} >
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
