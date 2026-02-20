@@ -28,7 +28,7 @@ const GetRect = ({ data }) => {
     }
 
     return () => null;
-  }, []);
+  }, [data]);
 
   return (
     <>
